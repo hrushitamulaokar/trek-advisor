@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: trek-advisor
+    env: node
+    plan: free
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: mongodb+srv://hrushitamulaokar08:W7k1SuxM6pMxjfaD@cluster0.vwwp42x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: mySuperSecretKey123!
+      - key: CLOUDINARY_CLOUD_NAME
+        value: do0f2diti
+      - key: CLOUDINARY_API_KEY
+        value: 222933535889464
+      - key: CLOUDINARY_API_SECRET
+        value: 99LTipN8hxwkNTTB-TAn6YiPWwo
