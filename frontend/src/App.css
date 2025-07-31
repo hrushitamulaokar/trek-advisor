@@ -1,0 +1,549 @@
+/* Navigation Bar */
+.navbar {
+  width: 100vw;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4vw 1rem 2vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+  min-width: 320px;
+  box-sizing: border-box;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e8b57;
+  letter-spacing: 1px;
+  font-family: 'Georgia', serif;
+  white-space: nowrap;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  margin-right: 0;
+}
+
+.nav-link {
+  color: #2e8b57;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  background: #e6f2ec;
+  color: #256944;
+}
+
+/* Responsive: Stack links on small screens */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Main App Styles */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  padding-top: 100px;
+}
+
+.App-header {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: #2e8b57;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Georgia', serif;
+}
+
+p {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.explore-btn {
+  margin: 1.5rem 0 0.5rem 0;
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  background-color: #2e8b57;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.explore-btn:hover {
+  background-color: #256944;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* About Modal */
+.about-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 800px;
+  width: 90%;
+  padding: 2rem;
+  position: relative;
+}
+
+.about-modal-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-right: 2rem;
+  border: 4px solid #2e8b57;
+}
+
+.about-modal-content {
+  flex: 1;
+  text-align: left;
+}
+
+.about-modal-content h2 {
+  color: #2e8b57;
+  margin-bottom: 1rem;
+}
+
+.about-modal-content a {
+  color: #2e8b57;
+  text-decoration: none;
+  font-weight: bold;
+}
+.about-modal-content a:hover {
+  text-decoration: underline;
+}
+
+.close-btn {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: #2e8b57;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.close-btn:hover {
+  background: #256944;
+}
+
+/* Auth Modal */
+.auth-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.auth-modal h2 {
+  color: #2e8b57;
+  margin-bottom: 1rem;
+}
+
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-modal input {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.auth-submit-btn {
+  padding: 0.7rem;
+  background: #2e8b57;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.auth-submit-btn:hover {
+  background: #256944;
+}
+
+.switch-auth {
+  margin-top: 1rem;
+  color: #333;
+  font-size: 1rem;
+}
+.switch-auth span {
+  color: #2e8b57;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.switch-auth span:hover {
+  color: #256944;
+}
+
+/* Trek Gallery Styles */
+.trek-gallery {
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: rgba(255,255,255,0.8);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
+  text-align: center;
+}
+
+.trek-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.trek-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+  width: 220px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding-bottom: 1rem;
+}
+.trek-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+.trek-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px 14px 0 0;
+}
+.trek-card h3 {
+  margin: 1rem 0 0 0;
+  color: #2e8b57;
+}
+
+/* Trek Modal */
+.trek-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  max-width: 700px;
+  width: 95vw;
+  padding: 2rem;
+  position: relative;
+  text-align: left;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Post Review Panel */
+.post-review-panel {
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+  position: relative;
+}
+.post-review-panel textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 0.7rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  resize: vertical;
+}
+.review-panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.upload-label {
+  background: #2e8b57;
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.upload-label:hover {
+  background: #256944;
+}
+.emoji-btn {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  transition: background 0.2s;
+}
+.emoji-btn:hover {
+  background: #f0f0f0;
+}
+.post-btn {
+  background: #2e8b57;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 1.2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.post-btn:hover {
+  background: #256944;
+}
+.image-preview-row {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+.preview-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Trek Experience (Review) */
+.trek-experience {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  position: relative;
+}
+.trek-photos {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.trek-photos img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.trek-actions {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #2e8b57;
+  display: flex;
+  gap: 1.5rem;
+}
+.like-btn, .comment-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+  padding: 0;
+}
+.like-btn:hover, .comment-btn:hover {
+  color: #e74c3c;
+}
+.trek-comments {
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Add Comment Panel */
+.add-comment-panel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  position: relative;
+}
+.add-comment-panel input[type="text"] {
+  flex: 1;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Emoji Picker */
+.emoji-picker {
+  position: absolute;
+  z-index: 2000;
+  top: 40px;
+  left: 0;
+}
+
+/* About Us Modal */
+.aboutus-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  max-width: 500px;
+  width: 90vw;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+  z-index: 1100;
+}
+.aboutus-modal h2 {
+  color: #2e8b57;
+  margin-bottom: 1rem;
+}
+.aboutus-modal p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Back Button */
+.back-btn {
+  background: none;
+  border: none;
+  color: #2e8b57;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  text-align: left;
+  transition: color 0.2s;
+}
+.back-btn:hover {
+  color: #256944;
+}
+
+/* Google Signin Button */
+.google-signin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #fff;
+  color: #444;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.google-signin-btn:hover {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+}
+
+.add-trek-card {
+  border: 2px dashed #2e8b57;
+  background: #f7f7f7;
+  color: #2e8b57;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+  transition: background 0.2s, border 0.2s;
+}
+.add-trek-card:hover {
+  background: #e6f2ec;
+  border-color: #256944;
+}
+
+.add-trek-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  max-width: 400px;
+  width: 90vw;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+}
+.add-trek-modal h2 {
+  color: #2e8b57;
+  margin-bottom: 1rem;
+}
+.add-trek-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.add-trek-modal input[type="text"],
+.add-trek-modal textarea {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
