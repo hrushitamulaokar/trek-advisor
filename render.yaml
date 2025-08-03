@@ -3,8 +3,8 @@ services:
     name: trek-advisor
     env: node
     plan: free
-    buildCommand: npm install --legacy-peer-deps && npm run build
-    startCommand: npm start
+    buildCommand: cd backend && npm install && cd ../frontend && npm install --legacy-peer-deps && npm run build
+    startCommand: node backend/server.js
     envVars:
       - key: NODE_ENV
         value: production
