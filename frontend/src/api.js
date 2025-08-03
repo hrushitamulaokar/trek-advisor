@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = '/api';
+
 
 // Helper function to get auth token from localStorage
 const getAuthToken = () => localStorage.getItem('authToken');
@@ -40,7 +41,9 @@ export const trekAPI = {
   addTrek: async (formData) => {
     const response = await fetch(`${API_BASE_URL}/treks`, {
       method: 'POST',
-      headers: { 'Authorization': `Bearer ${getAuthToken()}` },
+      headers: {
+        'Authorization': `Bearer ${getAuthToken()}`
+      },
       body: formData
     });
     return response.json();
@@ -54,7 +57,9 @@ export const trekAPI = {
   addReview: async (trekId, formData) => {
     const response = await fetch(`${API_BASE_URL}/treks/${trekId}/reviews`, {
       method: 'POST',
-      headers: { 'Authorization': `Bearer ${getAuthToken()}` },
+      headers: {
+        'Authorization': `Bearer ${getAuthToken()}`
+      },
       body: formData
     });
     return response.json();
@@ -76,4 +81,4 @@ export const trekAPI = {
     });
     return response.json();
   }
-}; 
+};
